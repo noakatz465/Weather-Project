@@ -1,4 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
+import './Home.scss';
 import axios from 'axios';
 import { WeatherModel } from '../../models/WeatherModel.model';
 import Card from '../Card/Card';
@@ -26,7 +27,10 @@ const Home: FC<HomeProps> = (props) => {
           setWeatherData((prevState) => ({
             ...prevState,
             [city]: response.data
+            
           }));
+          console.log(weatherData);
+
         })
         .catch((error) => console.error(`Error fetching weather data for ${city}:`, error));
     };
@@ -51,7 +55,7 @@ const Home: FC<HomeProps> = (props) => {
               description={weatherData[city]!.weather[0].description}
             />
           ) : (
-            <p key={city}>טוען נתונים עבור {city}...</p>
+            <p key={city}>...טוען נתונים עבור {city}</p>
           )
         )}
       </div>
