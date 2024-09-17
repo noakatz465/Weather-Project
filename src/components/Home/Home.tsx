@@ -14,6 +14,13 @@ const Home: FC<HomeProps> = (props) => {
     Alaska: null
   });
 
+  const cityNamesInHebrew: { [key: string]: string } = {
+    Eilat: 'אילת',
+    London: 'לונדון',
+    'New York': 'ניו יורק',
+    Alaska: 'אלסקה',
+  };
+
   const cities = ['Eilat', 'London', 'New York', 'Alaska'];
 
   useEffect(() => {
@@ -48,7 +55,7 @@ const Home: FC<HomeProps> = (props) => {
           weatherData[city] ? (
             <Card
               key={city}
-              cityName={city}
+              cityName={cityNamesInHebrew[city]}
               temp={weatherData[city]!.main.temp}
               feels_like={weatherData[city]!.main.feels_like}
               humidity={weatherData[city]!.main.humidity}
