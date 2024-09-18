@@ -26,7 +26,6 @@ const Home: FC<HomeProps> = (props) => {
   useEffect(() => {
     const apiKey = '8ee633956bad6ae1965b557a94ecfcba';
 
-    // יצירת פונקציה פנימית להבטחת שימוש נכון במשתנה city
     const fetchWeather = (city: string) => {
       axios
         .get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=he`)
